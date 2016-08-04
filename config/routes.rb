@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 	  	resources :humans, except: [:destroy, :edit, :update]
 	  end
 	end
+	# # ou
+	# namespace :api, path: '/', constraints: { subdomain: 'api' } do
+ #  	resources :zombies, only: [:index, :show]
+ #  	resources :humans, except: [:destroy, :edit, :update]
+	# end
+
   # Ao usar um namespace, precisamos definir o controller dentro de um
   # module, nesse caso 'module Api'; em uma pasta com o mesmo nome do
   # modulo '/app/controllers/api/zombies_controller.rb'
