@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   # resources :zombies
   # resources :zombies, only: :index
-  resources :zombies, only: [:index, :show]
-  resources :humans, except: [:destroy, :edit, :update]
+  namespace :api do
+  	resources :zombies, only: [:index, :show]
+  	resources :humans, except: [:destroy, :edit, :update]
+  end
+  # Ao usar um namespace, precisamos definir o controller dentro de um
+  # module, nesse caso 'module Api'; em uma pasta com o mesmo nome do
+  # modulo '/app/controllers/api/zombies_controller.rb'
 
   # with_options only: :index do |list|
   # 	list.resources :zombies
