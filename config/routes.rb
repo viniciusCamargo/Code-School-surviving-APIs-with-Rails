@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
   # resources :zombies
   # resources :zombies, only: :index
-  namespace :api do
-  	resources :zombies, only: [:index, :show]
-  	resources :humans, except: [:destroy, :edit, :update]
-  end
+  constraints subdomain: 'api' do
+	  namespace :api, path: '/' do
+	  	resources :zombies, only: [:index, :show]
+	  	resources :humans, except: [:destroy, :edit, :update]
+	  end
+	end
   # Ao usar um namespace, precisamos definir o controller dentro de um
   # module, nesse caso 'module Api'; em uma pasta com o mesmo nome do
   # modulo '/app/controllers/api/zombies_controller.rb'
+
+  # Ao usar um subdominio e um namespace, nossa url ficaria assim:
+  # api.meusite.com/api/zombies. Para corrigir isso, passamos um metodo
+  # path: '/' para o namespace, dessa forma ela roda no root:
+  # api.meusite.com/zombies
 
   # with_options only: :index do |list|
   # 	list.resources :zombies
