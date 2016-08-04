@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   # 	resources :humans
   # end
 
+  # # Notas: https://gist.github.com/viniciusCamargo/be67420b7638685c9f27e213b79ff896
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
